@@ -35,6 +35,8 @@ setuptools.setup(
         'sphinx',
         'sphinx_rtd_theme',
         'pydantic',
-        'redis'
+        'redis',
+        'influxdb',
+        'influxdb-client'
     ],
 )

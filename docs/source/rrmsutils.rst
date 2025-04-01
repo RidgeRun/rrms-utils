@@ -8,6 +8,7 @@ Subpackages
    :maxdepth: 4
 
    rrmsutils.models
+   rrmsutils.utils
 
 Submodules
 ----------
@@ -28,10 +29,58 @@ rrmsutils.bips module
    :undoc-members:
    :show-inheritance:
 
+rrmsutils.camera module
+-----------------------
+
+.. automodule:: rrmsutils.camera
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 rrmsutils.detection module
 --------------------------
 
 .. automodule:: rrmsutils.detection
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rrmsutils.directionschemagenerator module
+-----------------------------------------
+
+.. automodule:: rrmsutils.directionschemagenerator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rrmsutils.display module
+------------------------
+
+.. automodule:: rrmsutils.display
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rrmsutils.engagementanalytics module
+------------------------------------
+
+.. automodule:: rrmsutils.engagementanalytics
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rrmsutils.heatmapschemagenerator module
+---------------------------------------
+
+.. automodule:: rrmsutils.heatmapschemagenerator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rrmsutils.media module
+----------------------
+
+.. automodule:: rrmsutils.media
    :members:
    :undoc-members:
    :show-inheritance:
