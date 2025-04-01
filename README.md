@@ -1,3 +1,3 @@
-# RidgeRun Microservices Utils v1.0.0
+# RidgeRun Microservices Utils v1.1.0
 
 Set of utilities to work with RidgeRun Microservices

@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/RidgeRun/rrms-utils/compare/v1.0.0...v1.1.0) (2025-04-01)
+
+
+### Features
+
+* Include People engagement models support ([77bb0f2](https://github.com/RidgeRun/rrms-utils/commit/77bb0f2d1e64c1e33dd9b58830633dbbb109b774))
+
 # 1.0.0 (2024-07-09)
 
 
