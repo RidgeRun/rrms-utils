@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/RidgeRun/rrms-utils/compare/v1.1.0...v1.2.0) (2025-05-15)
+
+
+### Features
+
+* Limit redis streams size ([45b52df](https://github.com/RidgeRun/rrms-utils/commit/45b52df782d636b45ef77d550f64fa8126d7e7a5))
+
 # [1.1.0](https://github.com/RidgeRun/rrms-utils/compare/v1.0.0...v1.1.0) (2025-04-01)
 
 

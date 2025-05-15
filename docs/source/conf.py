@@ -14,7 +14,7 @@ import sys
 project = 'RRMS-Utils'
 copyright = '2024, RidgeRun,LLC'
 author = 'RidgeRun,LLC'
-release = '1.1.0'
+release = '1.2.0'
 
 sys.path.insert(0, os.path.abspath('../..'))
 
