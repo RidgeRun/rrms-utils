@@ -156,18 +156,19 @@ class RedisClient:
             self.logger.error("Error incrementing field in Redis: %s", e)
             return False
 
-    def write_to_stream(self, stream: str, data: dict) -> bool:
+    def write_to_stream(self, stream: str, data: dict, maxlen: int = 1000) -> bool:
         """Write data to a Redis stream
 
         Args:
             stream (str): The name of the stream
             data (dict): The data to write to the stream
-
+            maxlen (int): The maximum number of entries to keep in the stream. Older entries will be trimmed
+                          automatically if the stream exceeds this length. The trimming is approximate for performance reasons.
         Returns:
             bool: True if the data was written successfully, False otherwise.
         """
         try:
-            self._redis.xadd(stream, data)
+            self._redis.xadd(stream, data, maxlen=maxlen, approximate=True)
             return True
         except Exception as e:
             self.logger.error("Error writing to stream in Redis: %s", e)

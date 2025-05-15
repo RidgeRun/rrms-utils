@@ -81,7 +81,7 @@ class DirectionSchemaGenerator():
 
         self.__redis = RedisClient(self.__redis_host, self.__redis_port)
 
-    def send(self, detections: List[Detection], frame_id: str = None, timestamp: str = None) -> bool:
+    def send(self, detections: List[Detection], frame_id: str = None, timestamp: str = None, maxlen: int = 1000) -> bool:
         """
         Sends detection data to a Redis stream.
 
@@ -89,6 +89,9 @@ class DirectionSchemaGenerator():
             detections (List[Detection]): A list of Detection objects to be sent.
             frame_id (str, optional): The frame ID. If not provided, it will use the internal frame counter. Defaults to None.
             timestamp (str, optional): The timestamp of the frame. If not provided, the current time will be used. Defaults to None.
+            maxlen (int, optional): The maximum number of entries to keep in the Redis stream.
+                                    Older entries will be trimmed approximately if the stream exceeds this length. Defaults to 1000.
+
         Returns:
             bool: True if the data was successfully written to the Redis stream, False otherwise.
         """
@@ -124,7 +127,7 @@ class DirectionSchemaGenerator():
 
         frame_str = frame.model_dump_json()
 
-        return self.__redis.write_to_stream(self.__redis_stream, {"data": frame_str})
+        return self.__redis.write_to_stream(self.__redis_stream, {"data": frame_str}, maxlen=maxlen)
 
     def get(self, block: int = 5000, last_id='$') -> Tuple[Frame, str]:
         """

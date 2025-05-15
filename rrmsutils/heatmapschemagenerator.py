@@ -76,12 +76,14 @@ class HeatmapSchemaGenerator():
 
         self.__redis = RedisClient(self.__redis_host, self.__redis_port)
 
-    def send(self, heatmap: Heatmap) -> bool:
+    def send(self, heatmap: Heatmap,  maxlen: int = 1000) -> bool:
         """
         Sends a heatmap to a Redis stream.
 
         Args:
             heatmap (Heatmap): The heatmap object to be sent.
+            maxlen (int, optional): The maximum number of entries to keep in the Redis stream.
+                                    Older entries will be trimmed approximately if the stream exceeds this length. Defaults to 1000.
         Returns:
             bool: True if the heatmap was successfully written to the Redis stream, False otherwise.
         """
@@ -94,7 +96,7 @@ class HeatmapSchemaGenerator():
 
         heatmap_str = heatmap.model_dump_json()
 
-        return self.__redis.write_to_stream(self.__redis_stream, {"data": heatmap_str})
+        return self.__redis.write_to_stream(self.__redis_stream, {"data": heatmap_str}, maxlen=maxlen)
 
     def get(self, block: int = 5000, last_id='$') -> Tuple[Heatmap, str]:
         """

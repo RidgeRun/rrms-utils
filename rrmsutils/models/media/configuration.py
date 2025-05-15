@@ -30,7 +30,7 @@ class Stream(BaseModel):
     """
     Output RTSP stream configuration
     """
-    resolution: Resolution
+    resolution: Optional[Resolution] = Resolution(width=0, height=0)
     brightness: float
     port: int
     mapping: str
